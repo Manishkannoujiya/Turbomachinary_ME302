@@ -1,0 +1,16 @@
+% Non-axisymmetric Test Sections
+theta = linspace(0, 2*pi, 100);
+r1 = 1 + 0.2*sin(3*theta);  % Three-lobed
+r2 = 1 + 0.15*(sin(2*theta) - 0.1*cos(theta));  % Offset
+
+figure;
+polarplot(theta, r1, 'b-', 'LineWidth', 2, 'DisplayName', 'Three-Lobed Design');
+hold on;
+polarplot(theta, r2, 'r--', 'LineWidth', 2, 'DisplayName', 'Offset Design');
+title('Non-Axisymmetric Test Section Designs', 'FontSize', 14);
+legend('Location', 'northeastoutside');
+set(gca, 'FontSize', 11);
+hold off;
+
+% Save the figure
+print('non_axisymmetric', '-dpng', '-r300');
